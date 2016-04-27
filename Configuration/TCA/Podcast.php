@@ -162,12 +162,16 @@ $TCA['tx_podcast_domain_model_podcast'] = array(
 							'pid' => '###CURRENT_PID###',
 							'setValue' => 'prepend'
 							),
-						'script' => 'wizard_add.php',
+						'module' => array(
+							'name' => 'wizard_add',
+						),
 					),
 					'edit' => array(
 						'type' => 'popup',
 						'title' => 'Edit',
-						'script' => 'wizard_edit.php',
+						'module' => array(
+							'name' => 'wizard_edit',
+						),
 						'icon' => 'edit2.gif',
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
@@ -204,7 +208,9 @@ $TCA['tx_podcast_domain_model_podcast'] = array(
 					'edit' => array(
 						'type' => 'popup',
 						'title' => 'Edit',
-						'script' => 'wizard_edit.php',
+						'module' => array(
+							'name' => 'wizard_edit',
+						),
 						'icon' => 'edit2.gif',
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
@@ -218,7 +224,9 @@ $TCA['tx_podcast_domain_model_podcast'] = array(
 							'pid' => '###CURRENT_PID###',
 							'setValue' => 'prepend'
 							),
-						'script' => 'wizard_add.php',
+						'module' => array(
+							'name' => 'wizard_add',
+						),
 					),
 				),
 			),
@@ -242,7 +250,9 @@ $TCA['tx_podcast_domain_model_podcast'] = array(
 					 'edit' => array(
 						 'type' => 'popup',
 						 'title' => 'Edit',
-						 'script' => 'wizard_edit.php',
+						 'module' => array(
+							 'name' => 'wizard_edit',
+						 ),
 						 'icon' => 'edit2.gif',
 						 'popup_onlyOpenIfSelected' => 1,
 						 'JSopenParams' => 'height=645,width=645,status=0,menubar=0,scrollbars=1',
@@ -256,7 +266,9 @@ $TCA['tx_podcast_domain_model_podcast'] = array(
 							 'pid' => '###CURRENT_PID###',
 							 'setValue' => 'prepend'
 						 ),
-						 'script' => 'wizard_add.php',
+						 'module' => array(
+							 'name' => 'wizard_add',
+						 ),
 					 ),
 				 ),
 			),
@@ -281,7 +293,9 @@ $TCA['tx_podcast_domain_model_podcast'] = array(
 					 'edit' => array(
 						 'type' => 'popup',
 						 'title' => 'Edit',
-						 'script' => 'wizard_edit.php',
+						 'module' => array(
+							 'name' => 'wizard_edit',
+						 ),
 						 'icon' => 'edit2.gif',
 						 'popup_onlyOpenIfSelected' => 1,
 						 'JSopenParams' => 'height=645,width=645,status=0,menubar=0,scrollbars=1',
@@ -295,7 +309,9 @@ $TCA['tx_podcast_domain_model_podcast'] = array(
 							 'pid' => '###CURRENT_PID###',
 							 'setValue' => 'prepend'
 						 ),
-						 'script' => 'wizard_add.php',
+						 'module' => array(
+							 'name' => 'wizard_add',
+						 ),
 					 ),
 				 ),
 			),
@@ -318,7 +334,9 @@ $TCA['tx_podcast_domain_model_podcast'] = array(
 					 'edit' => array(
 						 'type' => 'popup',
 						 'title' => 'Edit',
-						 'script' => 'wizard_edit.php',
+						 'module' => array(
+							 'name' => 'wizard_edit',
+						 ),
 						 'icon' => 'edit2.gif',
 						 'popup_onlyOpenIfSelected' => 1,
 						 'JSopenParams' => 'height=650,width=650,status=0,menubar=0,scrollbars=1',
@@ -332,7 +350,9 @@ $TCA['tx_podcast_domain_model_podcast'] = array(
 							 'pid' => '###CURRENT_PID###',
 							 'setValue' => 'prepend'
 						 ),
-						 'script' => 'wizard_add.php',
+						 'module' => array(
+							 'name' => 'wizard_add',
+						 ),
 					 ),
 				 ),
 			),
@@ -354,14 +374,6 @@ $TCA['tx_podcast_domain_model_podcast'] = array(
 					 '_POSITION' => 'right',
 					 '_PADDING' => 1,
 					 '_VERTICAL' => 0,
-					/*'edit' => array(
-						'type' => 'popup',
-						'title' => 'Edit',
-						'script' => 'wizard_edit.php',
-						'icon' => 'edit2.gif',
-						'popup_onlyOpenIfSelected' => 1,
-						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-						),*/
 					'add' => Array(
 						'type' => 'script',
 						'title' => 'Create new',
@@ -371,7 +383,9 @@ $TCA['tx_podcast_domain_model_podcast'] = array(
 							'pid' => '###CURRENT_PID###',
 							'setValue' => 'prepend'
 							),
-						'script' => 'wizard_add.php',
+						'module' => array(
+							'name' => 'wizard_add',
+						),
 					),
 				),
 			),

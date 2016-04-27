@@ -116,7 +116,12 @@ $TCA['tx_podcast_domain_model_website'] = array(
 						'type' => 'popup',
 						'title' => 'LLL:EXT:podcast/Resources/Private/Language/locallang_db.xml:tx_podcast_domain_model_website.link',
 						'icon' => 'link_popup.gif',
-						'script' => 'browse_links.php?mode=wizard',
+						'module' => array(
+							'name' => 'browser_links',
+							'urlParameters' => array(
+								'mode' => 'wizard',
+							)
+						),
 						'params' => array(
 							'blindLinkOptions' => 'mail, page, spec, folder',
 							'allowedExtensions' => 'mp3,m4a,mp4,pdf,mov,wmv',
