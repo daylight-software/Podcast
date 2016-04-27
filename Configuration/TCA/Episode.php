@@ -230,7 +230,7 @@ $TCA['tx_podcast_domain_model_episode'] = array(
 				'size' => 2,
 				'autoSizeMax' => 3,
 				'maxitems' => 1,
-				//'renderMode' => 'checkbox',
+				'renderType' => 'selectCheckBox',
 				'foreign_table' => 'tx_podcast_domain_model_website',
 				'foreign_table_where' => 'AND tx_podcast_domain_model_website.pid=###CURRENT_PID###',
 				'wizards' => array(
@@ -312,7 +312,7 @@ $TCA['tx_podcast_domain_model_episode'] = array(
 				'type' => 'select',
 				'foreign_table' => 'tx_podcast_domain_model_keyword',
 				'MM' => 'tx_podcast_episode_keyword_mm',
-				'renderMode' => 'checkbox',
+				'renderType' => 'selectCheckBox',
 				'size' => 10,
 				'autoSizeMax' => 30,
 				'maxitems' => 9999,
