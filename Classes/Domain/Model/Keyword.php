@@ -4,7 +4,7 @@
  *  Copyright notice
  *
  *  (c) 2012 Noël Bossart <n dot company at me dot com>, noelboss.ch
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -25,6 +25,9 @@
  ***************************************************************/
 
 
+namespace Educo\Podcast\Domain\Model;
+use \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject;
+
 /**
  *
  *
@@ -32,7 +35,8 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Podcast_Domain_Model_Keyword extends Tx_Extbase_DomainObject_AbstractValueObject {
+class Keyword extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject
+{
 
 	/**
 	 * Keyword
@@ -47,7 +51,8 @@ class Tx_Podcast_Domain_Model_Keyword extends Tx_Extbase_DomainObject_AbstractVa
 	 *
 	 * @return void
 	 */
-	public function __construct() {
+	public function __construct()
+	{
 
 	}
 
@@ -56,7 +61,8 @@ class Tx_Podcast_Domain_Model_Keyword extends Tx_Extbase_DomainObject_AbstractVa
 	 *
 	 * @return string $title
 	 */
-	public function getTitle() {
+	public function getTitle()
+	{
 		return $this->title;
 	}
 
@@ -66,9 +72,11 @@ class Tx_Podcast_Domain_Model_Keyword extends Tx_Extbase_DomainObject_AbstractVa
 	 * @param string $title
 	 * @return void
 	 */
-	public function setTitle($title) {
+	public function setTitle($title)
+	{
 		$this->title = $title;
 	}
 
 }
+
 ?>

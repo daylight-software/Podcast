@@ -1,6 +1,6 @@
 <?php
 
-namespace PlusB\Podcast\ViewHelpers;
+namespace Educo\Podcast\ViewHelpers;
 
     /***************************************************************
      *  Copyright notice
@@ -39,17 +39,17 @@ namespace PlusB\Podcast\ViewHelpers;
 class PaginateViewHelper extends \TYPO3\CMS\Fluid\Core\Widget\AbstractWidgetViewHelper {
 
     /**
-     * @var \PlusB\Podcast\Controller\PaginateController
+     * @var \Educo\Podcast\Controller\PaginateController
      */
     protected $controller;
 
     /**
      * Injection of widget controller
      *
-     * @param \PlusB\Podcast\Controller\PaginateController $controller
+     * @param \Educo\Podcast\Controller\PaginateController $controller
      * @return void
      */
-    public function injectController(\PlusB\Podcast\Controller\PaginateController $controller) {
+    public function injectController(\Educo\Podcast\Controller\PaginateController $controller) {
         $this->controller = $controller;
     }
 

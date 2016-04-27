@@ -1,6 +1,6 @@
 <?php
 
-namespace PlusB\Podcast\Controller;
+namespace Educo\Podcast\Controller;
 
     /***************************************************************
      *  Copyright notice

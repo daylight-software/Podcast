@@ -1,4 +1,4 @@
-{namespace pc=PlusB\Podcast\ViewHelpers}
+{namespace pc=Educo\Podcast\ViewHelpers}
 
 <f:if condition="{episode.file}">
   <item>

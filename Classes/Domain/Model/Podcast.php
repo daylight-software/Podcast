@@ -4,7 +4,7 @@
  *  Copyright notice
  *
  *  (c) 2012 Noël Bossart <n dot company at me dot com>, noelboss.ch
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -18,6 +18,16 @@
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+namespace Educo\Podcast\Domain\Model;
+
+use DateTime;
+use Educo\Podcast\Domain\Model\Category;
+use Educo\Podcast\Domain\Model\Episode;
+use Educo\Podcast\Domain\Model\Keyword;
+use Educo\Podcast\Domain\Model\Person;
+use \TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use \TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use Educo\Podcast\Domain\Model\Website;
 
 
 /**
@@ -27,7 +37,8 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Podcast_Domain_Model_Podcast extends Tx_Extbase_DomainObject_AbstractEntity {
+class Podcast extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+{
 
 	/**
 	 * Title
@@ -73,14 +84,14 @@ class Tx_Podcast_Domain_Model_Podcast extends Tx_Extbase_DomainObject_AbstractEn
 	 * @var boolean
 	 */
 	protected $itunes;
-	
+
 	/**
 	 * Contains explicit Content
 	 *
 	 * @var string
 	 */
-	protected $explicit;  
-	
+	protected $explicit;
+
 	/**
 	 * Blocked on iTunes
 	 *
@@ -91,45 +102,45 @@ class Tx_Podcast_Domain_Model_Podcast extends Tx_Extbase_DomainObject_AbstractEn
 	/**
 	 * categories
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Podcast_Domain_Model_Category>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Educo\Podcast\Domain\Model\Category>
 	 */
 	protected $categories;
 
 	/**
 	 * episodes
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Podcast_Domain_Model_Episode>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Educo\Podcast\Domain\Model\Episode>
 	 */
-	protected $episodes;  
-	
+	protected $episodes;
+
 	/**
 	 * keywords
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Podcast_Domain_Model_Keyword>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Educo\Podcast\Domain\Model\Keyword>
 	 */
 	protected $keywords;
 
 	/**
 	 * author
 	 *
-	 * @var Tx_Podcast_Domain_Model_Person
+	 * @var Person
 	 */
 	protected $author;
 
 	/**
 	 * technicalContact
 	 *
-	 * @var Tx_Podcast_Domain_Model_Person
+	 * @var Person
 	 */
 	protected $technicalContact;
 
 	/**
 	 * website
 	 *
-	 * @var Tx_Podcast_Domain_Model_Website
+	 * @var Website
 	 */
 	protected $website;
-	
+
 	/**
 	 * Publication Date
 	 *
@@ -149,27 +160,29 @@ class Tx_Podcast_Domain_Model_Podcast extends Tx_Extbase_DomainObject_AbstractEn
 	 *
 	 * @return void
 	 */
-	public function __construct() {
+	public function __construct()
+	{
 		//Do not remove the next line: It would break the functionality
 		$this->initStorageObjects();
 	}
 
 	/**
-	 * Initializes all Tx_Extbase_Persistence_ObjectStorage properties.
+	 * Initializes all \TYPO3\CMS\Extbase\Persistence\ObjectStorage properties.
 	 *
 	 * @return void
 	 */
-	protected function initStorageObjects() {
+	protected function initStorageObjects()
+	{
 		/**
 		 * Do not modify this method!
 		 * It will be rewritten on each save in the extension builder
 		 * You may modify the constructor of this class instead
 		 */
-		$this->categories = new Tx_Extbase_Persistence_ObjectStorage();
-		
-		$this->episodes = new Tx_Extbase_Persistence_ObjectStorage();
-		
-		$this->keywords = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->categories = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+
+		$this->episodes = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+
+		$this->keywords = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
@@ -177,7 +190,8 @@ class Tx_Podcast_Domain_Model_Podcast extends Tx_Extbase_DomainObject_AbstractEn
 	 *
 	 * @return string $title
 	 */
-	public function getTitle() {
+	public function getTitle()
+	{
 		return $this->title;
 	}
 
@@ -187,7 +201,8 @@ class Tx_Podcast_Domain_Model_Podcast extends Tx_Extbase_DomainObject_AbstractEn
 	 * @param string $title
 	 * @return void
 	 */
-	public function setTitle($title) {
+	public function setTitle($title)
+	{
 		$this->title = $title;
 	}
 
@@ -196,7 +211,8 @@ class Tx_Podcast_Domain_Model_Podcast extends Tx_Extbase_DomainObject_AbstractEn
 	 *
 	 * @return string $subtitle
 	 */
-	public function getSubtitle() {
+	public function getSubtitle()
+	{
 		return $this->subtitle;
 	}
 
@@ -206,7 +222,8 @@ class Tx_Podcast_Domain_Model_Podcast extends Tx_Extbase_DomainObject_AbstractEn
 	 * @param string $subtitle
 	 * @return void
 	 */
-	public function setSubtitle($subtitle) {
+	public function setSubtitle($subtitle)
+	{
 		$this->subtitle = $subtitle;
 	}
 
@@ -215,7 +232,8 @@ class Tx_Podcast_Domain_Model_Podcast extends Tx_Extbase_DomainObject_AbstractEn
 	 *
 	 * @return string $description
 	 */
-	public function getDescription() {
+	public function getDescription()
+	{
 		return $this->description;
 	}
 
@@ -225,7 +243,8 @@ class Tx_Podcast_Domain_Model_Podcast extends Tx_Extbase_DomainObject_AbstractEn
 	 * @param string $description
 	 * @return void
 	 */
-	public function setDescription($description) {
+	public function setDescription($description)
+	{
 		$this->description = $description;
 	}
 
@@ -234,7 +253,8 @@ class Tx_Podcast_Domain_Model_Podcast extends Tx_Extbase_DomainObject_AbstractEn
 	 *
 	 * @return string $copyright
 	 */
-	public function getCopyright() {
+	public function getCopyright()
+	{
 		return str_replace('YEAR', date('Y'), $this->copyright);
 	}
 
@@ -244,7 +264,8 @@ class Tx_Podcast_Domain_Model_Podcast extends Tx_Extbase_DomainObject_AbstractEn
 	 * @param string $copyright
 	 * @return void
 	 */
-	public function setCopyright($copyright) {
+	public function setCopyright($copyright)
+	{
 		$this->copyright = $copyright;
 	}
 
@@ -253,7 +274,8 @@ class Tx_Podcast_Domain_Model_Podcast extends Tx_Extbase_DomainObject_AbstractEn
 	 *
 	 * @return string $image
 	 */
-	public function getImage() {
+	public function getImage()
+	{
 		return $this->image;
 	}
 
@@ -263,7 +285,8 @@ class Tx_Podcast_Domain_Model_Podcast extends Tx_Extbase_DomainObject_AbstractEn
 	 * @param string $image
 	 * @return void
 	 */
-	public function setImage($image) {
+	public function setImage($image)
+	{
 		$this->image = $image;
 	}
 
@@ -272,7 +295,8 @@ class Tx_Podcast_Domain_Model_Podcast extends Tx_Extbase_DomainObject_AbstractEn
 	 *
 	 * @return string $explicit
 	 */
-	public function getExplicit() {
+	public function getExplicit()
+	{
 		return $this->explicit;
 	}
 
@@ -282,16 +306,18 @@ class Tx_Podcast_Domain_Model_Podcast extends Tx_Extbase_DomainObject_AbstractEn
 	 * @param string $explicit
 	 * @return void
 	 */
-	public function setExplicit($explicit) {
+	public function setExplicit($explicit)
+	{
 		$this->explicit = $explicit;
-	} 
-	
+	}
+
 	/**
 	 * Returns the itunesblock
 	 *
 	 * @return boolean $itunesblock
 	 */
-	public function getItunesblock() {
+	public function getItunesblock()
+	{
 		return $this->itunesblock;
 	}
 
@@ -301,16 +327,18 @@ class Tx_Podcast_Domain_Model_Podcast extends Tx_Extbase_DomainObject_AbstractEn
 	 * @param boolean $itunesblock
 	 * @return void
 	 */
-	public function setItunesblock($itunesblock) {
+	public function setItunesblock($itunesblock)
+	{
 		$this->itunesblock = $itunesblock;
-	}   
-	
+	}
+
 	/**
 	 * Returns the itunes
 	 *
 	 * @return boolean $itunes
 	 */
-	public function getItunes() {
+	public function getItunes()
+	{
 		return $this->itunes;
 	}
 
@@ -319,189 +347,210 @@ class Tx_Podcast_Domain_Model_Podcast extends Tx_Extbase_DomainObject_AbstractEn
 	 *
 	 * @return boolean
 	 */
-	public function isItunes() {
+	public function isItunes()
+	{
 		return $this->getItunes();
 	}
 
 	/**
 	 * Adds a Category
 	 *
-	 * @param Tx_Podcast_Domain_Model_Category $category
+	 * @param Category $category
 	 * @return void
 	 */
-	public function addCategory(Tx_Podcast_Domain_Model_Category $category) {
+	public function addCategory(Category $category)
+	{
 		$this->categories->attach($category);
 	}
 
 	/**
 	 * Removes a Category
 	 *
-	 * @param Tx_Podcast_Domain_Model_Category $categoryToRemove The Category to be removed
+	 * @param Category $categoryToRemove The Category to be removed
 	 * @return void
 	 */
-	public function removeCategory(Tx_Podcast_Domain_Model_Category $categoryToRemove) {
+	public function removeCategory(Category $categoryToRemove)
+	{
 		$this->categories->detach($categoryToRemove);
 	}
 
 	/**
 	 * Returns the categories
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Podcast_Domain_Model_Category> $categories
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Educo\Podcast\Domain\Model\Category> $categories
 	 */
-	public function getCategories() {
+	public function getCategories()
+	{
 		return $this->categories;
 	}
 
 	/**
 	 * Sets the categories
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Podcast_Domain_Model_Category> $categories
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage <Educo\Podcast\Domain\Model\Category> $categories
 	 * @return void
 	 */
-	public function setCategories(Tx_Extbase_Persistence_ObjectStorage $categories) {
+	public function setCategories(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $categories)
+	{
 		$this->categories = $categories;
 	}
 
 	/**
 	 * Adds a Episode
 	 *
-	 * @param Tx_Podcast_Domain_Model_Episode $episode
+	 * @param Episode $episode
 	 * @return void
 	 */
-	public function addEpisode(Tx_Podcast_Domain_Model_Episode $episode) {
+	public function addEpisode(Episode $episode)
+	{
 		$this->episodes->attach($episode);
 	}
 
 	/**
 	 * Removes a Episode
 	 *
-	 * @param Tx_Podcast_Domain_Model_Episode $episodeToRemove The Episode to be removed
+	 * @param Episode $episodeToRemove The Episode to be removed
 	 * @return void
 	 */
-	public function removeEpisode(Tx_Podcast_Domain_Model_Episode $episodeToRemove) {
+	public function removeEpisode(Episode $episodeToRemove)
+	{
 		$this->episodes->detach($episodeToRemove);
 	}
 
 	/**
 	 * Returns the episodes
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Podcast_Domain_Model_Episode> $episodes
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Educo\Podcast\Domain\Model\Episode> $episodes
 	 */
-	public function getEpisodes() {
+	public function getEpisodes()
+	{
 		return $this->episodes;
 	}
 
 	/**
 	 * Sets the episodes
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Podcast_Domain_Model_Episode> $episodes
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage <Educo\Podcast\Domain\Model\Episode> $episodes
 	 * @return void
 	 */
-	public function setEpisodes(Tx_Extbase_Persistence_ObjectStorage $episodes) {
+	public function setEpisodes(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $episodes)
+	{
 		$this->episodes = $episodes;
 	}
 
 	/**
 	 * Returns the author
 	 *
-	 * @return Tx_Podcast_Domain_Model_Person $author
+	 * @return Person $author
 	 */
-	public function getAuthor() {
+	public function getAuthor()
+	{
 		return $this->author;
 	}
 
 	/**
 	 * Sets the author
 	 *
-	 * @param Tx_Podcast_Domain_Model_Person $author
+	 * @param Person $author
 	 * @return void
 	 */
-	public function setAuthor(Tx_Podcast_Domain_Model_Person $author) {
+	public function setAuthor(Person $author)
+	{
 		$this->author = $author;
 	}
 
 	/**
 	 * Returns the technicalContact
 	 *
-	 * @return Tx_Podcast_Domain_Model_Person $technicalContact
+	 * @return Person $technicalContact
 	 */
-	public function getTechnicalContact() {
+	public function getTechnicalContact()
+	{
 		return $this->technicalContact;
 	}
 
 	/**
 	 * Sets the technicalContact
 	 *
-	 * @param Tx_Podcast_Domain_Model_Person $technicalContact
+	 * @param Person $technicalContact
 	 * @return void
 	 */
-	public function setTechnicalContact(Tx_Podcast_Domain_Model_Person $technicalContact) {
+	public function setTechnicalContact(Person $technicalContact)
+	{
 		$this->technicalContact = $technicalContact;
 	}
 
 	/**
 	 * Returns the website
 	 *
-	 * @return Tx_Podcast_Domain_Model_Website $website
+	 * @return Website $website
 	 */
-	public function getWebsite() {
+	public function getWebsite()
+	{
 		return $this->website;
 	}
 
 	/**
 	 * Sets the website
 	 *
-	 * @param Tx_Podcast_Domain_Model_Website $website
+	 * @param Website $website
 	 * @return void
 	 */
-	public function setWebsite(Tx_Podcast_Domain_Model_Website $website) {
+	public function setWebsite(Website $website)
+	{
 		$this->website = $website;
 	}
+
 	/**
 	 * Adds a Keyword
 	 *
-	 * @param Tx_Podcast_Domain_Model_Keyword $keyword
+	 * @param Keyword $keyword
 	 * @return void
 	 */
-	public function addKeyword(Tx_Podcast_Domain_Model_Keyword $keyword) {
+	public function addKeyword(Keyword $keyword)
+	{
 		$this->keywords->attach($keyword);
 	}
 
 	/**
 	 * Removes a Keyword
 	 *
-	 * @param Tx_Podcast_Domain_Model_Keyword $keywordToRemove The Keyword to be removed
+	 * @param Keyword $keywordToRemove The Keyword to be removed
 	 * @return void
 	 */
-	public function removeKeyword(Tx_Podcast_Domain_Model_Keyword $keywordToRemove) {
+	public function removeKeyword(Keyword $keywordToRemove)
+	{
 		$this->keywords->detach($keywordToRemove);
 	}
 
 	/**
 	 * Returns the keywords
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Podcast_Domain_Model_Keyword> $keywords
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Educo\Podcast\Domain\Model\Keyword> $keywords
 	 */
-	public function getKeywords() {
+	public function getKeywords()
+	{
 		return $this->keywords;
 	}
 
 	/**
 	 * Sets the keywords
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Podcast_Domain_Model_Keyword> $keywords
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage <Educo\Podcast\Domain\Model\Keyword> $keywords
 	 * @return void
 	 */
-	public function setKeywords(Tx_Extbase_Persistence_ObjectStorage $keywords) {
+	public function setKeywords(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $keywords)
+	{
 		$this->keywords = $keywords;
 	}
-	
+
 	/**
 	 * Returns the publicationDate
 	 *
 	 * @return DateTime $publicationDate
 	 */
-	public function getPublicationDate() {
+	public function getPublicationDate()
+	{
 		return $this->publicationDate;
 	}
 
@@ -511,7 +560,8 @@ class Tx_Podcast_Domain_Model_Podcast extends Tx_Extbase_DomainObject_AbstractEn
 	 * @param DateTime $publicationDate
 	 * @return void
 	 */
-	public function setPublicationDate($publicationDate) {
+	public function setPublicationDate($publicationDate)
+	{
 		$this->publicationDate = $publicationDate;
 	}
 
@@ -520,8 +570,10 @@ class Tx_Podcast_Domain_Model_Podcast extends Tx_Extbase_DomainObject_AbstractEn
 	 *
 	 * @return DateTime $tstamp
 	 */
-	public function getTstamp() {
+	public function getTstamp()
+	{
 		return $this->tstamp;
 	}
 }
+
 ?>

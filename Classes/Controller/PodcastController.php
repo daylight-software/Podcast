@@ -4,7 +4,7 @@
  *  Copyright notice
  *
  *  (c) 2012 Noël Bossart <n dot company at me dot com>, noelboss.ch
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -18,6 +18,12 @@
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+namespace Educo\Podcast\Controller;
+
+use \TYPO3\CMS\Core\Utility\GeneralUtility;
+use Educo\Podcast\Domain\Model\Podcast;
+use Educo\Podcast\Domain\Repository\PodcastRepository;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 
 /**
@@ -27,22 +33,24 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Podcast_Controller_PodcastController extends Tx_Extbase_MVC_Controller_ActionController {
+class PodcastController extends ActionController
+{
 
 	/**
 	 * podcastRepository
 	 *
-	 * @var Tx_Podcast_Domain_Repository_PodcastRepository
+	 * @var \Educo\Podcast\Domain\Repository\PodcastRepository
 	 */
 	protected $podcastRepository;
 
 	/**
 	 * injectPodcastRepository
 	 *
-	 * @param Tx_Podcast_Domain_Repository_PodcastRepository $podcastRepository
+	 * @param PodcastRepository $podcastRepository
 	 * @return void
 	 */
-	public function injectPodcastRepository(Tx_Podcast_Domain_Repository_PodcastRepository $podcastRepository) {
+	public function injectPodcastRepository(PodcastRepository $podcastRepository)
+	{
 		$this->podcastRepository = $podcastRepository;
 	}
 
@@ -51,14 +59,15 @@ class Tx_Podcast_Controller_PodcastController extends Tx_Extbase_MVC_Controller_
 	 *
 	 * @return void
 	 */
-	public function listAction() {
-		if($this->podcastRepository->countAll() < 1){
+	public function listAction()
+	{
+		if ($this->podcastRepository->countAll() < 1) {
 			$podcasts = $this->podcastRepository->findAllWithoutPidRestriction();
 		} else {
 			$podcasts = $this->podcastRepository->findAll();
 		}
-		if($podcasts->count() < 1){
-			$this->flashMessageContainer->add('No Podcasts found.');
+		if ($podcasts->count() < 1) {
+			$this->addFlashMessage('No Podcasts found.');
 		}
 		$this->view->assign('settings', $this->settings);
 		$this->view->assign('podcasts', $podcasts);
@@ -70,46 +79,49 @@ class Tx_Podcast_Controller_PodcastController extends Tx_Extbase_MVC_Controller_
 	 * @param $podcast
 	 * @return void
 	 */
-	public function showAction(Tx_Podcast_Domain_Model_Podcast $podcast = NULL) {
-		if(!$podcast && intval($this->settings['singlePodcast']) > 0){
+	public function showAction(Podcast $podcast = NULL)
+	{
+		if (!$podcast && intval($this->settings['singlePodcast']) > 0) {
 			$this->settings['noBackButton'] = 1;
 			$podcast = $this->podcastRepository->findOneByUid(intval($this->settings['singlePodcast']));
 			$podcast = $podcast->getFirst();
-		} else if(!$podcast) {
+		} else if (!$podcast) {
 			$this->redirect('list');
 		}
-		
+
 		$this->updatePodcast($podcast);
 
-		if($this->settings['feed']){ 
+		if ($this->settings['feed']) {
 			$this->request->setFormat('xml');
 			$lang = $this->settings['ll']['language'];
 			$this->view->assign('language', $lang ? $lang : $GLOBALS['TSFE']->config['config']['htmlTag_langKey']);
 		}
 
-        $this->view->assign('baseUrl', $this->controllerContext->getRequest()->getBaseURI());
+		$this->view->assign('baseUrl', $this->controllerContext->getRequest()->getBaseURI());
 		$this->view->assign('settings', $this->settings);
 		$this->view->assign('podcast', $podcast);
 	}
-	
+
 	/**
 	 * Updates podcast duration
 	 *
-	 * @param $podcast Tx_Podcast_Domain_Model_Podcast
+	 * @param $podcast \Educo\Podcast\Domain\Model\Podcast
 	 * @return void
 	 */
-	private function updatePodcast(Tx_Podcast_Domain_Model_Podcast $podcast){
+	private function updatePodcast(Podcast $podcast)
+	{
 		$change = false;
 		foreach ($podcast->getEpisodes() as $episode) {
-			if($episode->getDuration() < 1){
+			if ($episode->getDuration() < 1) {
 				$change = true;
 				$episode->getAltfiles();
 			}
 		}
-		if($change){
-			$persistenceManager = t3lib_div::makeInstance('Tx_Extbase_Persistence_Manager');
+		if ($change) {
+			$persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('\TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager');
 			$persistenceManager->persistAll();
 		}
 	}
 }
+
 ?>

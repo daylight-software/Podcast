@@ -4,7 +4,7 @@
  *  Copyright notice
  *
  *  (c) 2012 Noël Bossart <n dot company at me dot com>, noelboss.ch
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -25,6 +25,9 @@
  ***************************************************************/
 
 
+namespace Educo\Podcast\Domain\Model;
+use \TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+
 /**
  *
  *
@@ -32,7 +35,8 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Podcast_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractEntity {
+class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+{
 
 	/**
 	 * Title
@@ -45,7 +49,7 @@ class Tx_Podcast_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractE
 	/**
 	 * Sucategory
 	 *
-	 * @var Tx_Podcast_Domain_Model_Category
+	 * @var Category
 	 */
 	protected $subcategory;
 
@@ -54,7 +58,8 @@ class Tx_Podcast_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractE
 	 *
 	 * @return void
 	 */
-	public function __construct() {
+	public function __construct()
+	{
 
 	}
 
@@ -63,7 +68,8 @@ class Tx_Podcast_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractE
 	 *
 	 * @return string $title
 	 */
-	public function getTitle() {
+	public function getTitle()
+	{
 		return $this->title;
 	}
 
@@ -73,28 +79,32 @@ class Tx_Podcast_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractE
 	 * @param string $title
 	 * @return void
 	 */
-	public function setTitle($title) {
+	public function setTitle($title)
+	{
 		$this->title = $title;
 	}
 
 	/**
 	 * Returns the subcategory
 	 *
-	 * @return Tx_Podcast_Domain_Model_Category $subcategory
+	 * @return Category $subcategory
 	 */
-	public function getSubcategory() {
+	public function getSubcategory()
+	{
 		return $this->subcategory;
 	}
 
 	/**
 	 * Sets the subcategory
 	 *
-	 * @param Tx_Podcast_Domain_Model_Category $subcategory
+	 * @param Category $subcategory
 	 * @return void
 	 */
-	public function setSubcategory(Tx_Podcast_Domain_Model_Category $subcategory) {
+	public function setSubcategory(Category $subcategory)
+	{
 		$this->subcategory = $subcategory;
 	}
 
 }
+
 ?>

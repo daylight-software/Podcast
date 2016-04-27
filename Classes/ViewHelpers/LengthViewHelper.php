@@ -1,5 +1,5 @@
 <?php
-namespace PlusB\Podcast\ViewHelpers;
+namespace Educo\Podcast\ViewHelpers;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Fluid".                      *

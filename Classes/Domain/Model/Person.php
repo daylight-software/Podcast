@@ -4,7 +4,7 @@
  *  Copyright notice
  *
  *  (c) 2012 Noël Bossart <n dot company at me dot com>, noelboss.ch
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -25,6 +25,9 @@
  ***************************************************************/
 
 
+namespace Educo\Podcast\Domain\Model;
+use \TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+
 /**
  *
  *
@@ -32,7 +35,8 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Podcast_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractEntity {
+class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+{
 
 	/**
 	 * Name
@@ -55,7 +59,8 @@ class Tx_Podcast_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractEnt
 	 *
 	 * @return void
 	 */
-	public function __construct() {
+	public function __construct()
+	{
 
 	}
 
@@ -64,7 +69,8 @@ class Tx_Podcast_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractEnt
 	 *
 	 * @return string $name
 	 */
-	public function getName() {
+	public function getName()
+	{
 		return $this->name;
 	}
 
@@ -74,7 +80,8 @@ class Tx_Podcast_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractEnt
 	 * @param string $name
 	 * @return void
 	 */
-	public function setName($name) {
+	public function setName($name)
+	{
 		$this->name = $name;
 	}
 
@@ -83,7 +90,8 @@ class Tx_Podcast_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractEnt
 	 *
 	 * @return string $email
 	 */
-	public function getEmail() {
+	public function getEmail()
+	{
 		return $this->email;
 	}
 
@@ -93,9 +101,11 @@ class Tx_Podcast_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractEnt
 	 * @param string $email
 	 * @return void
 	 */
-	public function setEmail($email) {
+	public function setEmail($email)
+	{
 		$this->email = $email;
 	}
 
 }
+
 ?>
