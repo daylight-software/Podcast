@@ -49,7 +49,6 @@ class Keyword extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject
 	/**
 	 * __construct
 	 *
-	 * @return void
 	 */
 	public function __construct()
 	{

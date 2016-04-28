@@ -158,7 +158,6 @@ class Podcast extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
 	 * __construct
 	 *
-	 * @return void
 	 */
 	public function __construct()
 	{

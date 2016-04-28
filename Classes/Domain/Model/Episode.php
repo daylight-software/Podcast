@@ -164,7 +164,6 @@ class Episode extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
 	 * __construct
 	 *
-	 * @return void
 	 */
 	public function __construct()
 	{
@@ -462,7 +461,8 @@ class Episode extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
 	 * Sets the mime
 	 *
-	 * @return void
+	 * @param $file
+	 * @return string
 	 */
 	private function getFileMime($file)
 	{
@@ -512,8 +512,8 @@ class Episode extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
 	 * Sets the duration
 	 *
-	 * @param integer $duration
-	 * @return void
+	 * @param string $file
+	 * @return int
 	 */
 	private function getFileDuration($file)
 	{
