@@ -123,21 +123,21 @@ class Podcast extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
 	 * author
 	 *
-	 * @var Person
+	 * @var \Educo\Podcast\Domain\Model\Person
 	 */
 	protected $author;
 
 	/**
 	 * technicalContact
 	 *
-	 * @var Person
+	 * @var \Educo\Podcast\Domain\Model\Person
 	 */
 	protected $technicalContact;
 
 	/**
 	 * website
 	 *
-	 * @var Website
+	 * @var \Educo\Podcast\Domain\Model\Website
 	 */
 	protected $website;
 
@@ -440,7 +440,7 @@ class Podcast extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
 	 * Returns the author
 	 *
-	 * @return Person $author
+	 * @return \Educo\Podcast\Domain\Model\Person $author
 	 */
 	public function getAuthor()
 	{
@@ -450,7 +450,7 @@ class Podcast extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
 	 * Sets the author
 	 *
-	 * @param Person $author
+	 * @param \Educo\Podcast\Domain\Model\Person $author
 	 * @return void
 	 */
 	public function setAuthor(Person $author)
@@ -461,7 +461,7 @@ class Podcast extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
 	 * Returns the technicalContact
 	 *
-	 * @return Person $technicalContact
+	 * @return \Educo\Podcast\Domain\Model\Person $technicalContact
 	 */
 	public function getTechnicalContact()
 	{
@@ -471,7 +471,7 @@ class Podcast extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
 	 * Sets the technicalContact
 	 *
-	 * @param Person $technicalContact
+	 * @param \Educo\Podcast\Domain\Model\Person $technicalContact
 	 * @return void
 	 */
 	public function setTechnicalContact(Person $technicalContact)
@@ -482,7 +482,7 @@ class Podcast extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
 	 * Returns the website
 	 *
-	 * @return Website $website
+	 * @return \Educo\Podcast\Domain\Model\Website $website
 	 */
 	public function getWebsite()
 	{
@@ -492,7 +492,7 @@ class Podcast extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
 	 * Sets the website
 	 *
-	 * @param Website $website
+	 * @param \Educo\Podcast\Domain\Model\Website $website
 	 * @return void
 	 */
 	public function setWebsite(Website $website)

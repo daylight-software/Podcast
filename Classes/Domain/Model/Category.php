@@ -49,7 +49,7 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
 	 * Sucategory
 	 *
-	 * @var Category
+	 * @var \Educo\Podcast\Domain\Model\Category
 	 */
 	protected $subcategory;
 
@@ -87,7 +87,7 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
 	 * Returns the subcategory
 	 *
-	 * @return Category $subcategory
+	 * @return \Educo\Podcast\Domain\Model\Category $subcategory
 	 */
 	public function getSubcategory()
 	{
@@ -97,7 +97,7 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
 	 * Sets the subcategory
 	 *
-	 * @param Category $subcategory
+	 * @param \Educo\Podcast\Domain\Model\Category $subcategory
 	 * @return void
 	 */
 	public function setSubcategory(Category $subcategory)

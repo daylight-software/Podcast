@@ -143,14 +143,14 @@ class Episode extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
 	 * website
 	 *
-	 * @var Website
+	 * @var \Educo\Podcast\Domain\Model\Website
 	 */
 	protected $website;
 
 	/**
 	 * author
 	 *
-	 * @var Person
+	 * @var \Educo\Podcast\Domain\Model\Person
 	 */
 	protected $author;
 
@@ -591,7 +591,7 @@ class Episode extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
 	 * Returns the website
 	 *
-	 * @return Website $website
+	 * @return \Educo\Podcast\Domain\Model\Website $website
 	 */
 	public function getWebsite()
 	{
@@ -612,7 +612,7 @@ class Episode extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
 	 * Returns the author
 	 *
-	 * @return Person $author
+	 * @return \Educo\Podcast\Domain\Model\Person $author
 	 */
 	public function getAuthor()
 	{
@@ -622,7 +622,7 @@ class Episode extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 	/**
 	 * Sets the author
 	 *
-	 * @param Person $author
+	 * @param \Educo\Podcast\Domain\Model\Person $author
 	 * @return void
 	 */
 	public function setAuthor(Person $author)
