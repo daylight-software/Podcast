@@ -137,9 +137,10 @@ $TCA['tx_podcast_domain_model_episode'] = array(
 						'title' => 'LLL:EXT:podcast/Resources/Private/Language/locallang_db.xml:tx_podcast_domain_model_episode.file',
 						'icon' => 'link_popup.gif',
 						'module' => array(
-							'name' => 'browse_links',
+							'name' => 'wizard_element_browser',
 							'urlParameters' => array(
 								'mode' => 'wizard',
+								'act' => 'file'
 							)
 						),
 						'params' => array(
@@ -196,9 +197,10 @@ $TCA['tx_podcast_domain_model_episode'] = array(
                         'title' => 'LLL:EXT:podcast/Resources/Private/Language/locallang_db.xml:tx_podcast_domain_model_episode.linkdetail',
                         'icon' => 'link_popup.gif',
 						'module' => array(
-							'name' => 'browse_links',
+							'name' => 'wizard_element_browser',
 							'urlParameters' => array(
 								'mode' => 'wizard',
+								'act' => 'file'
 							)
 						),
 						'params' => array(
@@ -267,7 +269,8 @@ $TCA['tx_podcast_domain_model_episode'] = array(
 			'exclude' => 0,
 			'label'	  => 'LLL:EXT:podcast/Resources/Private/Language/locallang_db.xml:tx_podcast_domain_model_episode.author',
 			'config' => array(
-				'type' => 'select',	 
+				'type' => 'select',
+				'renderType' => 'selectCheckBox',
 				'size' => 2,
 				'autoSizeMax' => 3,
 				'foreign_table' => 'tx_podcast_domain_model_person',
