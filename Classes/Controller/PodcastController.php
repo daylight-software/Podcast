@@ -118,7 +118,7 @@ class PodcastController extends ActionController
 			}
 		}
 		if ($change) {
-			$persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('\TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager');
+			$persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
 			$persistenceManager->persistAll();
 		}
 	}
