@@ -1,7 +1,7 @@
 <?php
 
 namespace Educo\Podcast\Utilities\Backend;
-use t3lib_BEfunc;
+use \TYPO3\CMS\Backend\Utility\BackendUtility;
 
 class EpisodePostProcessor
 {
@@ -9,7 +9,7 @@ class EpisodePostProcessor
 	{
 
 		if ($status == 'update' && $table == 'tx_podcast_domain_model_episode') {
-			$row = t3lib_BEfunc::getRecord($table, $id);
+			$row = BackendUtility::getRecord($table, $id);
 
 			// reset data, will be set anew when frontend is called
 			if (is_array($row)) {
