@@ -46,14 +46,13 @@
     </f:if>
 
     </div>
-    <f:if condition="{0:episode.mime}=={0:'video/mp4'}">
+    <f:if condition="{episode.videocode}">
         <f:then>
-
-            <f:if condition="{episode.videocode}">
+            <f:format.raw>{episode.videocode}</f:format.raw>
+        </f:then>
+        <f:else>
+            <f:if condition="{0:episode.mime}=={0:'video/mp4'}">
                 <f:then>
-                    <f:format.raw>{episode.videocode}</f:format.raw>
-                </f:then>
-                <f:else>
                     <div class="video">
                         <video width="{settings.video.width}" height="{settings.video.height}" id="podcastvideo_{episode.uid}"
                                preload="{settings.video.preload}" controls="controls" <f:if condition="{episode.image}">poster="{f:uri.image(src:'uploads/tx_podcast/{episode.image}', width:'{settings.video.width}' height:'{settings.video.height}c')}"</f:if>>
@@ -68,15 +67,6 @@
                         </object>
                         </video>
                     </div>
-                </f:else>
-            </f:if>
-
-        </f:then>
-        <f:else>
-
-            <f:if condition="{episode.videocode}">
-                <f:then>
-                    <f:format.raw>{episode.videocode}</f:format.raw>
                 </f:then>
                 <f:else>
                     <div class="audio">
@@ -94,10 +84,6 @@
                     </div>
                 </f:else>
             </f:if>
-
-
-
-
         </f:else>
     </f:if>
 </div>
