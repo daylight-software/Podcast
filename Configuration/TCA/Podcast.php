@@ -141,43 +141,14 @@ $TCA['tx_podcast_domain_model_podcast'] = array(
 			'exclude' => 0,
 			'label'	  => 'LLL:EXT:podcast/Resources/Private/Language/locallang_db.xml:tx_podcast_domain_model_podcast.episodes',
 			'config' => array(
-				'type' => 'select',
+				'type' => 'inline',
 				'foreign_table' => 'tx_podcast_domain_model_episode',
+				'appearance' => array(
+					'collapseAll' => true,
+					'expandSingle' => true,
+				),
 				'foreign_table_where' => ' AND tx_podcast_domain_model_episode.sys_language_uid IN (-1,0) ORDER BY tx_podcast_domain_model_episode.publication_date DESC',
 				'MM' => 'tx_podcast_podcast_episode_mm',
-				'renderType' => 'selectCheckBox',
-				'size' => 10,
-				'autoSizeMax' => 30,
-				'maxitems' => 9999,
-				'multiple' => 1,
-				'wizards' => array(
-					'_POSITION' => 'right',
-					'_PADDING' => 10,
-					'add' => Array(
-						'type' => 'script',
-						'title' => 'Create new',
-						'icon' => 'add.gif',
-						'params' => array(
-							'table'=> 'tx_podcast_domain_model_episode',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-							),
-						'module' => array(
-							'name' => 'wizard_add',
-						),
-					),
-					'edit' => array(
-						'type' => 'popup',
-						'title' => 'Edit',
-						'module' => array(
-							'name' => 'wizard_edit',
-						),
-						'icon' => 'edit2.gif',
-						'popup_onlyOpenIfSelected' => 1,
-						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-						),
-
-				),
 			),
 		),
 		'categories' => array(
