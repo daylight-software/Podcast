@@ -45,5 +45,14 @@ class EpisodeController extends ActionController
         $this->view->assign('episodes', $episodes);
     }
 
+    /**
+     * action single
+     *
+     * @param \Educo\Podcast\Domain\Model\Episode $episode
+     */
+    public function singleAction(\Educo\Podcast\Domain\Model\Episode $episode = null) {
+        $this->view->assign('episode', $episode);
+    }
+
 
 }

@@ -18,7 +18,7 @@ const vendor = "Educo.";
 	vendor.$_EXTKEY,
 	'Episodes',
 	array(
-		'Episode' => 'list',
+		'Episode' => 'list,single',
 	),
 	array(
 		'Episode' => '',

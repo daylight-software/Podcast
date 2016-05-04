@@ -18,7 +18,11 @@
 							<items>
 								<numIndex index="0">
 									<numIndex index="0">LLL:EXT:podcast/Resources/Private/Language/locallang_db.xml:ff.actionEpisodesList</numIndex>
-									<numIndex index="1"><![CDATA[Episode->list;]]></numIndex>
+									<numIndex index="1"><![CDATA[Episode->list;Episode->single;]]></numIndex>
+								</numIndex>
+								<numIndex index="1">
+									<numIndex index="0">LLL:EXT:podcast/Resources/Private/Language/locallang_db.xml:ff.actionEpisodesSingle</numIndex>
+									<numIndex index="1"><![CDATA[Episode->single;]]></numIndex>
 								</numIndex>
 							</items>
 						</config>
@@ -28,7 +32,7 @@
                     <settings.episodeKeyword>
                         <TCEforms>
                             <label>Keyword to filter for</label>
-                            <displayCond><![CDATA[FIELD:switchableControllerActions:=:Episode->list;]]></displayCond>
+                            <displayCond><![CDATA[FIELD:switchableControllerActions:=:Episode->list;Episode->single;]]></displayCond>
                             <config type="array">
                                 <type>select</type>
                                 <size>1</size>

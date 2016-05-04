@@ -10,7 +10,10 @@
             <f:for each="{ep}" as="episode" reverse="false">
                 <f:if condition="{episode}">
                     <f:cycle values="{1: 'odd' 2: 'even'}" as="zebraClass">
-                        <f:render partial="Episode" arguments="{episode: episode, zebraClass: zebraClass}" />
+                        <f:link.action arguments="{episode: episode}">
+                            <h3>{episode.title}<span> <f:format.date date="{episode.publicationDate}" format="{settings.episode.fe.publicationDate}" /></span></h3>
+                            <p>{episode.subtitle}</p>
+                        </f:link.action>
                     </f:cycle>
                 </f:if>
             </f:for>
