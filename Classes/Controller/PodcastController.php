@@ -40,19 +40,9 @@ class PodcastController extends ActionController
 	 * podcastRepository
 	 *
 	 * @var \Educo\Podcast\Domain\Repository\PodcastRepository
+	 * @inject
 	 */
 	protected $podcastRepository;
-
-	/**
-	 * injectPodcastRepository
-	 *
-	 * @param PodcastRepository $podcastRepository
-	 * @return void
-	 */
-	public function injectPodcastRepository(PodcastRepository $podcastRepository)
-	{
-		$this->podcastRepository = $podcastRepository;
-	}
 
 	/**
 	 * action list
