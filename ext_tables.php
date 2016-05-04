@@ -9,15 +9,26 @@ if (!defined('TYPO3_MODE')) {
 	'Display Podcasts'
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+	$_EXTKEY,
+	'Episodes',
+	'Display Episodes'
+);
+
 //$pluginSignature = str_replace('_','',$_EXTKEY) . '_' . display;
 //$TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
 //\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_' .display. '.xml');
 
 $extensionName = \TYPO3\CMS\Core\Utility\GeneralUtility::underscoredToUpperCamelCase($_EXTKEY);
-$pluginSignature = strtolower($extensionName) . '_display'; 
+$pluginSignaturePodcasts = strtolower($extensionName) . '_display';
 
-$TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:'.$_EXTKEY.'/Configuration/FlexForms/ControllerActions.xml');
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignaturePodcasts] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignaturePodcasts, 'FILE:EXT:'.$_EXTKEY.'/Configuration/FlexForms/ControllerActions.xml');
+
+$pluginSignatureEpisodes = strtolower($extensionName) . '_episodes';
+
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignatureEpisodes] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignatureEpisodes, 'FILE:EXT:'.$_EXTKEY.'/Configuration/FlexForms/ControllerActionsEpisodes.xml');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Podcast');
 

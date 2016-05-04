@@ -69,7 +69,8 @@
 			<label index="ff.config">Default action of the plugin</label>
 			<label index="ff.actionList">List podcasts</label>
 			<label index="ff.actionShow">Show a single podcast</label>
-		</languageKey> 
+			<label index="ff.actionEpisodesList">List episodes</label>
+		</languageKey>
 		<languageKey index="de" type="array">                       
 			<label index="tx_podcast_domain_model_podcast">Podcast</label>   
 			<label index="tx_podcast_domain_model_podcast.tab.episodes">Episoden</label>
@@ -129,6 +130,7 @@
 			<label index="ff.config">Standard verhalten des Plugins</label>
 			<label index="ff.actionList">Liste der Podcasts</label>
 			<label index="ff.actionShow">Detailansicht eines Podcasts</label>
+			<label index="ff.actionEpisodesList">List von Episoden</label>
 		</languageKey>
 	</data>
 </T3locallang>

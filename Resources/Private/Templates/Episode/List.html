@@ -1,0 +1,22 @@
+{episodes.uselessCallToTriggerLoadingOfObject}
+<f:comment>
+    It seems that TYPO3 7.6.4 has problems to load \TYPO3\CMS\Extbase\Persistence\QueryResult for conditions
+    todo create bug report if none exists yet
+</f:comment>
+
+<f:if condition="{episodes}">
+    <f:then>
+        <f:widget.paginate objects="{episodes}" as="ep" configuration="{itemsPerPage: settings.itemsperpage, insertAbove: 1, insertBelow: 1}">
+            <f:for each="{ep}" as="episode" reverse="false">
+                <f:if condition="{episode}">
+                    <f:cycle values="{1: 'odd' 2: 'even'}" as="zebraClass">
+                        <f:render partial="Episode" arguments="{episode: episode, zebraClass: zebraClass}" />
+                    </f:cycle>
+                </f:if>
+            </f:for>
+        </f:widget.paginate>
+    </f:then>
+    <f:else>
+        <li><f:translate key="tx_podcast_domain_model_episode.none" /></li>
+    </f:else>
+</f:if>
