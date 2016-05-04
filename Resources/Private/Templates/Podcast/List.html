@@ -7,10 +7,10 @@
 				<div class="image">   
 					<f:if condition="{podcast.image}">
 						<f:then>         
-                                                  <f:link.action action="show" arguments="{podcast : podcast}"><f:image height="150m" width="150m" src="uploads/tx_podcast/{podcast.image}" alt="{podcast.title}" /></f:link.action>
+							<f:link.action action="show" arguments="{podcast : podcast}"><f:image height="150m" width="150m" src="uploads/tx_podcast/{podcast.image}" alt="{podcast.title}" /></f:link.action>
 						</f:then>
 						<f:else>
-                                                  <f:link.action action="show" arguments="{podcast : podcast}"><f:image height="150m" width="150m" src="typo3conf/ext/podcast/Resources/Public/Icons/podcast.jpg" alt="{podcast.title}" /></f:link.action>
+							<f:link.action action="show" arguments="{podcast : podcast}"><f:image height="150m" width="150m" src="typo3conf/ext/podcast/Resources/Public/Icons/podcast.jpg" alt="{podcast.title}" /></f:link.action>
 						</f:else>
 					</f:if>
 				</div>
