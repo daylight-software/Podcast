@@ -71,6 +71,7 @@
 			<label index="ff.actionShow">Show a single podcast</label>
 			<label index="ff.actionEpisodesList">List episodes</label>
 			<label index="ff.actionEpisodesSingle">Show single episode</label>
+			<label index="ff.actionHeaderImage">Show header image</label>
 		</languageKey>
 		<languageKey index="de" type="array">                       
 			<label index="tx_podcast_domain_model_podcast">Podcast</label>   
@@ -133,6 +134,7 @@
 			<label index="ff.actionShow">Detailansicht eines Podcasts</label>
 			<label index="ff.actionEpisodesList">List von Episoden</label>
 			<label index="ff.actionEpisodesSingle">Einzelne Episode</label>
+			<label index="ff.actionHeaderImage">Header Bild</label>
 		</languageKey>
 	</data>
 </T3locallang>
