@@ -1,0 +1,14 @@
+{
+    "name": "daylight-software/typo3-podcast",
+    "type": "typo3-cms-extension",
+    "description": "Podcast Extension for TYPO3 ",
+    "homepage": "https://github.com/daylight-software/typo3-podcast",
+    "require": {
+        "typo3/cms-core": ">7.6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Educo\\Podcast\\": "Classes"
+        }
+    }
+}
