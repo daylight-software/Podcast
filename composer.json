@@ -1,5 +1,5 @@
 {
-    "name": "daylight-software/typo3-podcast",
+    "name": "daylight-software/podcast",
     "type": "typo3-cms-extension",
     "description": "Podcast Extension for TYPO3 ",
     "homepage": "https://github.com/daylight-software/typo3-podcast",
